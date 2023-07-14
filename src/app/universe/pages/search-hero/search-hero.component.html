@@ -1,0 +1,73 @@
+
+<form [formGroup]="myForm" (ngSubmit)="onSave()" autocomplete="off">
+  <div class="p-inputgroup ">
+    <span class="p-inputgroup-addon">
+      <i class="pi pi-user"></i>
+    </span>
+
+    <input
+    class="medidor"
+    pInputText type="text"
+    placeholder="Busca tu Heroé favorito"
+    formControlName="name">
+
+    <span class="p-inputgroup-addon">
+      <button type="submit"  pButton pRipple class="pi pi-send  p-button-success  buttonColor"></button>
+    </span>
+  </div>
+
+  <p-divider *ngIf="isValidField()"></p-divider>
+
+  <div class="mt-2 scalein animation-duration-500 animation-iteration-1 flex align-items-center justify-content-center
+  font-bold  border-round m-2 px-5 py-3 shadow-6 card" *ngIf="isValidField()">
+    <span class="text">
+      Este campo es requerido
+    </span>
+  </div>
+
+</form>
+
+
+
+<p-divider></p-divider>
+
+<div class="scalein animation-duration-500 animation-iteration-1 "  *ngIf="heroInfo">
+
+  <div class="flex justify-content-center" >
+    <!-- Le pasamos el observavble al hijo para suscribirnos -->
+
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+
+    <p-card header="Ups! Error :c" *ngIf="isError && !isLoading">
+      <p class="m-0 contenedor">
+        <span class="text">
+          El heroe que has intentado buscar no se ah encontrado o verifica bien el nombre por favor!
+        </span>
+      </p>
+
+    </p-card>
+
+    <p-card  [header]=" heroInfo.name " [style]="{ width: '500px' }" *ngIf="myForm.controls['name'].valid && !isLoading && !isError">
+
+      <ng-template pTemplate="header" >
+        <p-image [src]="heroInfo | heroImage " alt="Image" [preview]="true" class="cardHero">
+          <ng-template pTemplate="indicator">
+            <i class="pi pi-check"></i>
+          </ng-template>
+
+        </p-image>
+      </ng-template>
+
+      <p>
+        {{ heroInfo.description | Herodescription }}
+      </p>
+
+    </p-card>
+
+
+
+  </div>
+
+
+
+</div>

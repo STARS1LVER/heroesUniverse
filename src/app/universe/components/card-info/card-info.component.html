@@ -1,0 +1,36 @@
+<div class="card">
+  <p-sidebar [(visible)]="sideBarVisible">
+
+    <p-card header="Selecciona una opcion">
+      <ng-template pTemplate="header">
+        <img class="imagen" src="https://c4.wallpaperflare.com/wallpaper/947/702/550/daredevil-marvel-comics-wallpaper-preview.jpg" alt="">
+      </ng-template>
+
+      <p >
+        <p-chip >
+          Si pulsas el botón “Buscar héroe”, podrás encontrar información sobre tus héroes favoritos
+        </p-chip>
+        <p-divider></p-divider>
+        <p-chip class="mt-3">
+          Si pulsas el botón “Buscar cómic”, encontrarás información sobre los cómics que te gustan
+        </p-chip>
+
+        <!-- Si pulsas el botón “Buscar héroe”, podrás encontrar información sobre tus héroes favoritos.
+        Si pulsas el botón “Buscar cómic”, encontrarás información sobre los cómics que te gustan -->
+      </p>
+
+      <ng-template pTemplate="footer">
+
+        <button pButton routerLink="/universe/hero" > Buscar heroes</button>
+        <button class="mt-3" pButton routerLink="/universe/comic" > Buscar Comics</button>
+      </ng-template>
+
+
+    </p-card>
+
+  </p-sidebar>
+  <button class="colorButton" pButton  (click)=" sideBarVisible = true"  >
+    <i class="pi pi-th-large mr-3"></i>
+    Menu Heroes
+  </button>
+</div>

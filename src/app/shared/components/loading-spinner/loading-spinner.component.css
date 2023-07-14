@@ -1,0 +1,179 @@
+/* .spinner-container {
+
+  align-items: center;
+  background-color: black;
+  border-radius: 20px;
+  bottom: 15px;
+  color: white;
+  display: flex;
+  padding: 5px 10px;
+  right: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+span {
+  margin-left: 5px;
+} */
+
+/* .loader {
+  position: relative;
+  width: 108px;
+  display: flex;
+  justify-content: space-between;
+}
+.loader::after , .loader::before  {
+  content: '';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background-color: #ececec;
+  border-color: #0d161b;
+  border: 1px solid black;
+  background-image:  radial-gradient(circle 14px, #0d161b 100%, transparent 0);
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  animation: eyeMove 10s infinite , blink 10s infinite;
+}
+@keyframes eyeMove {
+  0%  , 10% {     background-position: 0px 0px}
+  13%  , 40% {     background-position: -15px 0px}
+  43%  , 70% {     background-position: 15px 0px}
+  73%  , 90% {     background-position: 0px 15px}
+  93%  , 100% {     background-position: 0px 0px}
+}
+@keyframes blink {
+  0%  , 10% , 12% , 20%, 22%, 40%, 42% , 60%, 62%,  70%, 72% , 90%, 92%, 98% , 100%
+  { height: 48px}
+  11% , 21% ,41% , 61% , 71% , 91% , 99%
+  { height: 18px}
+} */
+
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: #a4a4a4;
+  border-radius: 4px;
+}
+.loader:before{
+  content: '';
+  position: absolute;
+  width: 54px;
+  height: 25px;
+  left: 50%;
+  top: 0;
+  background-image:
+  radial-gradient(ellipse at center, #0000 24%,#ff2e12 25%,#ff2c11 64%,#0000 65%),
+  linear-gradient(to bottom, #0000 34%,#ff1a12 35%);
+  background-size: 12px 12px , 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  transform: translate(-50% , -65%);
+  box-shadow: 0 -3px rgba(0, 0, 0, 0.25) inset;
+}
+.loader:after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  width: 66%;
+  height: 60%;
+  background: linear-gradient(to bottom, #ff534d 30%, #0000 31%);
+  background-size: 100% 16px;
+  animation: writeDown 2s ease-out infinite;
+}
+
+@keyframes writeDown {
+  0% { height: 0%; opacity: 0;}
+  20%{ height: 0%; opacity: 1;}
+  80% { height: 65%; opacity: 1;}
+  100% { height: 65%; opacity: 0;}
+}
+
+
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 180px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  color: #e8e8e8;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content .heading {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.content .para {
+  line-height: 1.5;
+}
+
+.content .btn {
+  color: #e8e8e8;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(-45deg, #ff8c00 12%, #ff0f7b 100% );
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+  border: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(-45deg, #ff0856 100% , #3262ff 0%);
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover::before {
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: none;
+}
+
+.card:hover .btn {
+  color: #212121;
+  background: #e8e8e8;
+}
+
+.content .btn:hover {
+  outline: 2px solid #e8e8e8;
+  background: transparent;
+  color: #e8e8e8;
+}
+
+.content .btn:active {
+  box-shadow: none;
+}
+
+.text{
+  font-family: 'Bebas Neue', sans-serif;
+  color: rgb(23, 23, 23);
+}

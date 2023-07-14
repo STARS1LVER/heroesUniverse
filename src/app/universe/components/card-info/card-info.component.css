@@ -1,0 +1,15 @@
+.colorButton{
+  background-color: #ff535b;
+  border-color: #ff454e;
+  margin-left: 3px;
+}
+
+
+.imagen{
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.contenedor{
+  background-color: black;
+}
